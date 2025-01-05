@@ -58,7 +58,7 @@ echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         {
           echo' <form class="d-flex">
          
-         <p class="text-light my-0 mx-2"> welcome '. $_SESSION['useremail'].'</p>
+         <p class="text-light my-0 mx-2"> welcome <a href = profile.php?q='. $_SESSION['useremail'].'>'. $_SESSION['useremail'].'</a></p>
          <a href="partials/_logout.php" role="button" class="btn btn-outline-success mx-2">Logout</a>
          </form>';
           
