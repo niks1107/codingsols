@@ -1,6 +1,12 @@
 <?php
 error_reporting(0);
   include 'partials/_header.php';
+  $alert = $_GET['alert'];
+if($alert == "Data updated successfully")
+{
+  echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Success!</strong> Your data has been updated successfully.  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+}
   include 'partials/_dbconnect.php';
   $users = $_GET['q'];
   $sql = "SELECT * FROM `users` WHERE user_email= '$users'";
@@ -60,7 +66,7 @@ echo'<!DOCTYPE html>
 <body>
   <div class="container mt-5">
     <h2 class="mb-4 display-4 text-center">User Profile</h2>
-    <form action="update.php" method="post">
+    <form action="handleupdate.php" method="POST">
       <!-- Name Field -->
       <div class="mb-3">
         <label for="name" class="form-label">Full Name</label>
@@ -100,6 +106,7 @@ echo'<!DOCTYPE html>
 </body>
 </html>
 ';
-   
+
+
 ?>
  
