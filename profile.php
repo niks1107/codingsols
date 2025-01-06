@@ -12,16 +12,11 @@ while($row=mysqli_fetch_assoc($result))
   $pwd = $row['user_pass'];
   $time = $row['timestamp'];
 }
-if($mnos == null)
+if($mno == null)
 {
-  echo "Mobile number cannot be empty";
+  $mno = "Update your mobile number";
 }
-else if($mnos == $mno)
-{
-  echo "Mobile number already exists";
-}
-else
-{
+
   $sql = "UPDATE `users` SET `user_mobile` = '$mnos' WHERE `users`.`user_email` = '$users'";
   $result = mysqli_query($con,$sql);
   if($result)
@@ -32,7 +27,7 @@ else
   {
     echo "Mobile number not updated";
   }
-}
+
 echo'<!DOCTYPE html>
 <html lang="en">
 <head>
