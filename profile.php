@@ -8,10 +8,16 @@ $result = mysqli_query($con,$sql);
 while($row=mysqli_fetch_assoc($result))
 {
   $email = $row['user_email'];
+  $name = $row['user_name'];
   $mno = $row['user_mobile'];
   $pwd = $row['user_pass'];
   $time = $row['timestamp'];
 }
+if($name == null)
+{
+  $name = "Update your full name";
+}
+
 if($mno == null)
 {
   $mno = "Update your mobile number";
@@ -23,6 +29,9 @@ if($email == null)
 if($pwd == null)
 {
   $pwd = "Update your password";
+}
+else{
+  $pwd = "********";
 }
 
 echo'<!DOCTYPE html>
