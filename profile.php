@@ -1,18 +1,19 @@
 <?php
 error_reporting(0);
-include 'partials/_header.php';
-    include 'partials/_dbconnect.php';
-$users = $_GET['q'];
-$sql = "SELECT * FROM `users` WHERE user_email= '$users'";
-$result = mysqli_query($con,$sql);
-while($row=mysqli_fetch_assoc($result))
-{
-  $email = $row['user_email'];
-  $name = $row['user_name'];
-  $mno = $row['user_mobile'];
-  $pwd = $row['user_pass'];
-  $time = $row['timestamp'];
-}
+  include 'partials/_header.php';
+  include 'partials/_dbconnect.php';
+  $users = $_GET['q'];
+  $sql = "SELECT * FROM `users` WHERE user_email= '$users'";
+  $result = mysqli_query($con,$sql);
+        
+  while($row=mysqli_fetch_assoc($result))
+      {
+          $email = $row['user_email'];
+          $name = $row['user_name'];
+          $mno = $row['user_mobile'];
+          $pwd = $row['user_pass'];
+          $time = $row['timestamp'];
+      }
 if($name == null)
 {
   $name = "Update your full name";
