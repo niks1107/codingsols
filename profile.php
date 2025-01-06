@@ -25,8 +25,6 @@ if($pwd == null)
   $pwd = "Update your password";
 }
 
-  
-
 echo'<!DOCTYPE html>
 <html lang="en">
 <head>
