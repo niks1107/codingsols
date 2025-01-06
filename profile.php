@@ -3,7 +3,7 @@ error_reporting(0);
 include 'partials/_header.php';
     include 'partials/_dbconnect.php';
 $users = $_GET['q'];
-$sql = "SELECT srno FROM `users` WHERE user_email= '$users'";
+$sql = "SELECT * FROM `users` WHERE user_email= '$users'";
 $result = mysqli_query($con,$sql);
 while($row=mysqli_fetch_assoc($result))
 {
@@ -16,17 +16,16 @@ if($mno == null)
 {
   $mno = "Update your mobile number";
 }
+if($email == null)
+{
+  $email = "Update your email";
+}
+if($pwd == null)
+{
+  $pwd = "Update your password";
+}
 
-  $sql = "UPDATE `users` SET `user_mobile` = '$mnos' WHERE `users`.`user_email` = '$users'";
-  $result = mysqli_query($con,$sql);
-  if($result)
-  {
-    echo "Mobile number updated successfully";
-  }
-  else
-  {
-    echo "Mobile number not updated";
-  }
+  
 
 echo'<!DOCTYPE html>
 <html lang="en">
@@ -65,19 +64,21 @@ echo'<!DOCTYPE html>
       <div class="mb-3">
         <label for="mobile" class="form-label">Mobile Number</label>
         <input type="text" class="form-control" id="mobile" value="';
-        echo $mno. '" disabled>
+        echo $mno . '" disabled>
       </div>
 
       <!-- Email Field -->
       <div class="mb-3">
         <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter your email" disabled>
+        <input type="email" class="form-control" id="email" value="';
+        echo $email. '" disabled>
       </div>
 
       <!-- Password Field -->
       <div class="mb-3">
         <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Enter your password" disabled>
+        <input type="password" class="form-control" id="password" value ="';
+        echo $pwd. '" disabled>
       </div>
 
       <!-- Update and Save Buttons -->
